@@ -137,10 +137,65 @@ p,
   background-color: var(--color-off-white);
 }
 
+/* Dark sections - WRK style */
+.traditions,
 .tradition_part,
 .why_part,
+.wrapper_base.special_jar {
+  background-color: var(--color-off-black) !important;
+}
+
 .last_cta {
   background-color: var(--color-paper-grey);
+}
+
+/* Light text for dark sections */
+.dark_heading,
+.traditions .h2,
+.traditions h2,
+.traditions .h3,
+.traditions h3,
+.why_part .h2,
+.why_part h2,
+.why_part .h3,
+.why_part h3,
+.special_jar .h2,
+.special_jar h2 {
+  color: var(--color-off-white) !important;
+}
+
+.dark_paragraph,
+.traditions .base_txt,
+.traditions p,
+.why_part .base_txt,
+.why_part p,
+.special_jar .base_txt,
+.special_jar p,
+.traditions .caption_txt,
+.why_part .caption_txt,
+.special_jar .caption_txt,
+.traditions .number_txt,
+.why_part .number_txt,
+.special_jar .number_txt,
+.traditions .like_h1,
+.why_part .like_h1,
+.special_jar .like_h1 {
+  color: var(--color-mid-grey) !important;
+}
+
+/* Links in dark sections */
+.traditions a,
+.why_part a,
+.special_jar a,
+.footer a {
+  color: var(--color-mid-grey) !important;
+}
+
+.traditions a:hover,
+.why_part a:hover,
+.special_jar a:hover,
+.footer a:hover {
+  color: var(--color-off-white) !important;
 }
 
 /* Override inline background colors for selection */
@@ -416,9 +471,17 @@ html {
 /* Tags */
 .tag_one {
   background-color: var(--color-black);
-  color: var(--color-off-white);
+  color: var(--color-off-white) !important;
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
+}
+
+/* Tags in dark sections should be inverted */
+.traditions .tag_one,
+.why_part .tag_one,
+.special_jar .tag_one {
+  background-color: var(--color-off-white) !important;
+  color: var(--color-black) !important;
 }
 
 /* Recipe cards */
@@ -434,22 +497,30 @@ html {
 }
 
 /* Footer */
-.footer_part {
-  background-color: var(--color-off-black);
+.footer_part,
+.footer {
+  background-color: var(--color-off-black) !important;
   color: var(--color-mid-grey);
 }
 
+.footer .base_txt,
+.footer p,
+.footer_part .base_txt,
+.footer_part p {
+  color: var(--color-mid-grey) !important;
+}
+
 .f-link {
-  color: var(--color-mid-grey);
+  color: var(--color-mid-grey) !important;
   transition: color var(--transition-fast);
 }
 
 .f-link:hover {
-  color: var(--color-off-white);
+  color: var(--color-off-white) !important;
 }
 
 .footer_txt {
-  color: var(--color-off-white);
+  color: var(--color-off-white) !important;
 }
 
 /* Discount/Newsletter section */
