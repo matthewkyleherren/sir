@@ -38,8 +38,21 @@
         <meta content="summary_large_image" name="twitter:card" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Webflow" name="generator" />
+        <!-- Google Fonts - Inter & JetBrains Mono -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
         <link
             href="external/css/hungry-tiger.webflow.shared.bb04e25ad.min.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <!-- WRK Design System Override -->
+        <link
+            href="external/css/wrk-design-system.css"
             rel="stylesheet"
             type="text/css"
         />
@@ -4842,6 +4855,22 @@
 
                 window.addEventListener("scroll", onScroll);
                 onScroll();
+            });
+        </script>
+
+        <!-- WRK Design System - Inline Style Cleanup -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Remove problematic inline background colors that conflict with new design
+                const inlineStyleElements = document.querySelectorAll('[style*="background"]');
+                inlineStyleElements.forEach(function(el) {
+                    // Check if it has the old brand colors
+                    const style = el.getAttribute('style');
+                    if (style && (style.includes('#e0005c') || style.includes('#d1255c') || style.includes('#f7ac32'))) {
+                        el.style.removeProperty('background-color');
+                        el.style.removeProperty('background');
+                    }
+                });
             });
         </script>
     </body>
