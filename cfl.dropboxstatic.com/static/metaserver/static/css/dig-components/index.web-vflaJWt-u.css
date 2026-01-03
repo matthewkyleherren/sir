@@ -6,6 +6,7 @@
 @import url('./foundations-tokens-vflqdPRqw.css');
 @import url('./foundations-components-vfl7K1gLZ.css');
 @import url('./content-icons-vflfpI50U.css');
+
 /* For any images that are circle cropped, scale them up a bit so that they're still cropped as a squircle */
 .dig-Avatar-image--modern[src*='circle_crop=1'],
 .dig-Avatar-image--modern[srcset*='circle_crop=1'] {
