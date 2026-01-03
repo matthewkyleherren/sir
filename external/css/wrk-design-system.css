@@ -553,3 +553,219 @@ html {
 .close_modal:hover {
   background-color: var(--color-burned-orange);
 }
+
+/* ============================================
+   10. GRID SYSTEM & LAYOUT
+   ============================================ */
+
+/* 16-column grid for larger screens */
+.wrapper,
+.wrapper_base,
+.wrapper_hero,
+.wrapper_sides {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  column-gap: var(--grid-gap);
+  padding-left: var(--gutter-desktop);
+  padding-right: var(--gutter-desktop);
+}
+
+/* Specific grid configurations */
+.wrapper_header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* Grid spans for content areas */
+.middle_al,
+.middle_matters {
+  grid-column: 1 / -1;
+}
+
+/* Responsive grid adjustments */
+@media screen and (max-width: 1439px) {
+  .wrapper,
+  .wrapper_base,
+  .wrapper_hero {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper,
+  .wrapper_base,
+  .wrapper_hero {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper,
+  .wrapper_base,
+  .wrapper_hero,
+  .wrapper_sides {
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: var(--gutter-mobile);
+    padding-right: var(--gutter-mobile);
+  }
+}
+
+/* ============================================
+   11. SPACING SYSTEM
+   ============================================ */
+
+/* Section spacing - consistent rhythm */
+.section_paragraph,
+.h2_box,
+.txt_box,
+.description_inside {
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+/* Hero sections */
+.hero_section,
+.hero_about {
+  padding-top: clamp(8rem, 15vh, 12rem);
+  padding-bottom: clamp(5rem, 10vh, 8rem);
+}
+
+/* Content sections */
+.angle_part,
+.inside_sides,
+.unwrap_part,
+.traditions,
+.why_part {
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+/* Smaller sections */
+.last_cta,
+.discount_newsletter {
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+/* Card spacing */
+.card_box {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* ============================================
+   12. ANIMATION & INTERACTION REFINEMENT
+   ============================================ */
+
+/* Standardize all transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hover effects for interactive elements */
+.card_box,
+.item_tradition,
+.card_recipe {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card_box:hover,
+.item_tradition:hover {
+  transform: translateY(-2px);
+}
+
+/* Image hover effects */
+.image_box img,
+.image_recipe img {
+  transition: transform var(--transition-medium);
+}
+
+.image_box:hover img,
+.image_recipe:hover img {
+  transform: scale(1.02);
+}
+
+/* Link hover effects - enhanced */
+.mobile_link,
+.f-link {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   13. PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* Hardware acceleration for animations */
+.button,
+.card_recipe,
+.card_box,
+.h-link::after {
+  will-change: transform;
+}
+
+/* Prevent layout shift */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optimize font rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   14. UTILITY CLASSES
+   ============================================ */
+
+/* Text utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Spacing utilities */
+.mt-0 { margin-top: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.pt-0 { padding-top: 0 !important; }
+.pb-0 { padding-bottom: 0 !important; }
+
+/* Display utilities */
+.hide-mobile {
+  display: block;
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .hide-desktop {
+    display: block !important;
+  }
+}
