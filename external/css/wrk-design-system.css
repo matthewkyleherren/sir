@@ -1,0 +1,484 @@
+/* ============================================
+   WRK DESIGN SYSTEM - SIR BEER
+   Design tokens and component overrides
+   Fast-track implementation with Inter + JetBrains Mono
+   ============================================ */
+
+/* ============================================
+   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ============================================ */
+
+:root {
+  /* Color Palette - WRK System */
+  --color-black: #191919;
+  --color-off-black: #282828;
+  --color-off-white: #fdfdfd;
+  --color-white: #fff;
+  --color-burned-orange: #ff6b00;
+  --color-orange: #ff7714;
+  --color-dark-grey: #646464;
+  --color-mid-grey: #a0a0a0;
+  --color-light-grey: #e6e6e6;
+  --color-paper-grey: #f2f2f2;
+
+  /* Typography */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Monaco, "Cascadia Code", monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Spacing & Layout */
+  --gutter-desktop: 2.0833333333vw;
+  --gutter-mobile: 5vw;
+  --border-radius: 0.4rem;
+  --button-height: 4rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Grid */
+  --grid-columns: 16;
+  --grid-gap: 1rem;
+
+  /* Legacy compatibility - keep old variable names */
+  --brown: var(--color-light-grey);
+  --primary: var(--color-black);
+  --dark-brown: var(--color-off-black);
+}
+
+/* ============================================
+   2. BASE STYLES & TYPOGRAPHY OVERRIDES
+   ============================================ */
+
+body {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.4;
+  background-color: var(--color-off-white);
+  color: var(--color-dark-grey);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings - Override Salmond font */
+.h1, h1,
+.h2, h2,
+.h3, h3,
+.headline_side,
+.headline_modal,
+.like_h1 {
+  font-family: var(--font-display) !important;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.15;
+  letter-spacing: -0.05rem;
+  color: var(--color-black);
+}
+
+/* Responsive heading sizes with clamp() */
+.h1, h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: -0.06rem;
+}
+
+.h2, h2 {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  letter-spacing: -0.05rem;
+}
+
+.h3, h3,
+.h4 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  letter-spacing: -0.04rem;
+}
+
+/* Body text - Override Graphikx font */
+.base_txt,
+.txt_header,
+p,
+.button_txt,
+.desc_recipe,
+.discount_txt {
+  font-family: var(--font-display) !important;
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.4;
+  letter-spacing: -0.012rem;
+  color: var(--color-dark-grey);
+}
+
+/* Monospace/Technical text */
+.caption_txt,
+.caption_hero .caption_txt,
+.tag_one,
+.number_txt {
+  font-family: var(--font-mono) !important;
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-dark-grey);
+}
+
+/* Dark paragraph text */
+.dark_paragraph {
+  color: var(--color-dark-grey);
+}
+
+/* ============================================
+   3. COLOR SYSTEM OVERRIDES
+   ============================================ */
+
+/* Background colors */
+.angle_part,
+.inside_sides,
+.unwrap_part {
+  background-color: var(--color-off-white);
+}
+
+.tradition_part,
+.why_part,
+.last_cta {
+  background-color: var(--color-paper-grey);
+}
+
+/* Override inline background colors for selection */
+::selection {
+  background: var(--color-burned-orange);
+  color: var(--color-white);
+}
+
+/* Link colors */
+a {
+  color: var(--color-black);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-burned-orange);
+}
+
+/* ============================================
+   4. BUTTON COMPONENT STYLES
+   ============================================ */
+
+.button,
+.w-commerce-commerceaddtocartbutton {
+  height: var(--button-height) !important;
+  background-color: var(--color-burned-orange) !important;
+  color: var(--color-off-white) !important;
+  border: none !important;
+  border-radius: var(--border-radius) !important;
+  padding: 0 2rem !important;
+  font-family: var(--font-display) !important;
+  font-size: 1rem !important;
+  font-weight: var(--font-weight-medium) !important;
+  letter-spacing: -0.01rem !important;
+  cursor: pointer;
+  transition: all var(--transition-fast) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+}
+
+.button:hover,
+.w-commerce-commerceaddtocartbutton:hover {
+  background-color: var(--color-orange) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+}
+
+.button:active,
+.w-commerce-commerceaddtocartbutton:active {
+  transform: translateY(0);
+}
+
+/* Dark variant buttons */
+.button.dark,
+.button.recipes_spec.dark,
+.button.spec_buy.dark {
+  background-color: var(--color-black) !important;
+  color: var(--color-off-white) !important;
+}
+
+.button.dark:hover,
+.button.recipes_spec.dark:hover,
+.button.spec_buy.dark:hover {
+  background-color: var(--color-off-black) !important;
+  box-shadow: 0 4px 12px rgba(25, 25, 25, 0.2);
+}
+
+/* Remove animated background overlay */
+.back_color_button {
+  display: none !important;
+}
+
+/* Button text */
+.button_txt {
+  color: inherit !important;
+  font-family: var(--font-display) !important;
+}
+
+/* ============================================
+   5. HEADER & NAVIGATION
+   ============================================ */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(253, 253, 253, 0.9) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(230, 230, 230, 0.5);
+  transition: background-color var(--transition-medium);
+}
+
+.wrapper_header {
+  padding-left: var(--gutter-desktop);
+  padding-right: var(--gutter-desktop);
+}
+
+.txt_header {
+  font-family: var(--font-display) !important;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-black) !important;
+  letter-spacing: -0.01rem;
+  transition: color var(--transition-fast);
+}
+
+.h-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.h-link:hover .txt_header {
+  color: var(--color-burned-orange) !important;
+}
+
+/* Navigation underline effect */
+.h-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-burned-orange);
+  transition: width var(--transition-fast);
+}
+
+.h-link:hover::after,
+.h-link.w--current::after {
+  width: 100%;
+}
+
+/* Logo */
+.logo_box img {
+  filter: brightness(0) saturate(100%);
+}
+
+/* ============================================
+   6. FORM ELEMENTS
+   ============================================ */
+
+input[type="email"],
+input[type="text"],
+textarea,
+select,
+.input {
+  height: var(--button-height);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-grey) !important;
+  border-radius: var(--border-radius) !important;
+  padding: 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-black);
+  transition: border-color var(--transition-fast);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.input:focus {
+  outline: none;
+  border-color: var(--color-burned-orange) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+}
+
+::placeholder {
+  color: var(--color-mid-grey);
+  opacity: 1;
+}
+
+/* Newsletter form */
+.email_form_box input {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-grey) !important;
+}
+
+/* ============================================
+   7. RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media screen and (max-width: 1439px) {
+  :root {
+    --gutter-desktop: 3vw;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --gutter-desktop: 4vw;
+  }
+
+  .wrapper_header {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --gutter-mobile: 6vw;
+    --button-height: 3.5rem;
+  }
+
+  .wrapper_header {
+    padding-left: var(--gutter-mobile);
+    padding-right: var(--gutter-mobile);
+  }
+
+  .h1, h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .h2, h2 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .base_txt, p {
+    font-size: clamp(0.95rem, 4vw, 1.05rem);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --gutter-mobile: 5vw;
+  }
+
+  .button {
+    padding: 0 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ============================================
+   8. UTILITY CLASSES
+   ============================================ */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   9. SPECIFIC COMPONENT OVERRIDES
+   ============================================ */
+
+/* Hero section */
+.caption_hero {
+  color: var(--color-dark-grey);
+}
+
+.dotted_line {
+  background-color: var(--color-mid-grey);
+}
+
+/* Tags */
+.tag_one {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+/* Recipe cards */
+.card_recipe {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card_recipe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer */
+.footer_part {
+  background-color: var(--color-off-black);
+  color: var(--color-mid-grey);
+}
+
+.f-link {
+  color: var(--color-mid-grey);
+  transition: color var(--transition-fast);
+}
+
+.f-link:hover {
+  color: var(--color-off-white);
+}
+
+.footer_txt {
+  color: var(--color-off-white);
+}
+
+/* Discount/Newsletter section */
+.left_discount {
+  background-color: var(--color-paper-grey);
+}
+
+/* Recipe tag */
+.tag_recipe {
+  font-family: var(--font-mono) !important;
+  background-color: var(--color-light-grey);
+  color: var(--color-black);
+  padding: 0.25rem 0.75rem;
+  border-radius: calc(var(--border-radius) * 0.5);
+  font-size: 0.75rem;
+}
+
+/* Modal overlays */
+.modal_recipe {
+  background-color: rgba(25, 25, 25, 0.75);
+}
+
+.close_modal {
+  background-color: var(--color-black);
+  color: var(--color-off-white);
+  border-radius: 50%;
+  transition: background-color var(--transition-fast);
+}
+
+.close_modal:hover {
+  background-color: var(--color-burned-orange);
+}
